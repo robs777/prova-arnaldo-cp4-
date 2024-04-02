@@ -1,14 +1,18 @@
 class Ordenacao:
     @staticmethod
+    # todos
     def bubble_sort(lista):
         n = len(lista)
         for i in range(n):
             for j in range(0, n-i-1):
-                if lista[j] > lista[j+1]:
-                    lista[j], lista[j+1] = lista[j+1], lista[j] 
+                if lista[j] > lista[j+1]: 
+                    lista[j], lista[j+1] = lista[j+1], lista[j]
+                elif lista[j] < lista[j+1]: 
+                    lista[j], lista[j+1] = lista[j+1], lista[j]
         return lista
 
     @staticmethod
+    #todos
     def selection_sort(lista):
         n = len(lista)
         for i in range(n):
@@ -17,8 +21,10 @@ class Ordenacao:
                 if lista[minimo] > lista[j]:
                     minimo = j
             lista[i], lista[minimo] = lista[minimo], lista[i] 
+        return lista
 
     @staticmethod
+    # Todos exceto ordenado decre
     def insertion_sort(lista):
         n = len(lista)
         for j in range(1, n):
@@ -28,6 +34,18 @@ class Ordenacao:
                 lista[i + 1] = lista[i]
                 i = i - 1
             lista[i + 1] = chave
+
+    # decrescente 
+    def insertion_sort_dec(lista):
+        n = len(lista)
+        for j in range(1, n):
+            chave = lista[j]
+            i = j - 1
+            while i >= 0 and lista[i] < chave: # Alteração aqui: lista[i] < chave
+                lista[i + 1] = lista[i]
+                i = i - 1
+            lista[i + 1] = chave
+
 
     @staticmethod
     def mergeSort(alist):
